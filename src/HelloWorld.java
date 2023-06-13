@@ -10,13 +10,17 @@ public class HelloWorld {
         String myString = "I love Codeup!";
         System.out.println(myString);
 
-        //Change your code to assign a character value to myString. What do you notice?
+        //Change your code to assign a character value to myString. What do you notice? (myString can not be assigned a char value and can not contain mulitple char charters to make a string.)
+        //myString = 'j';
 
+        //Change your code to assign the value 3.14159 to myString. What happens? (Cannot )
+//        myString = 3.14159;
 
-        //Change your code to assign the value 3.14159 to myString. What happens?
-        //
-        //Declare an long variable named myNumber, but do not assign anything to it. Next try to print out myNumber to the console. What happens?
-        //
+        //Declare a long variable named myNumber, but do not assign anything to it. Next try to print out myNumber to the console. What happens?
+        //I cannot run the code because myNumber has not been initalized. get a warning when it is run
+        long myNumber;
+//        System.out.println("myNumber = " + myNumber);
+
         //Change your code to assign the value 3.14 to myNumber. What do you notice?
         //
         //Change your code to assign the value 123L (Note the 'L' at the end) to myNumber.
