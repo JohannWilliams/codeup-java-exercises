@@ -18,17 +18,24 @@ public class HelloWorld {
 
         //Declare a long variable named myNumber, but do not assign anything to it. Next try to print out myNumber to the console. What happens?
         //I cannot run the code because myNumber has not been initalized. get a warning when it is run
-        long myNumber;
+//        long myNumber;
 //        System.out.println("myNumber = " + myNumber);
 
-        //Change your code to assign the value 3.14 to myNumber. What do you notice?
-        //
+        //Change your code to assign the value 3.14 to myNumber. What do you notice?(I get an error. Long does not contain decimal point precision. inorder to fix I have to cast 3.14 to a (long) or change myNumber to a float or double.)
+//        long myNumber = 3.14;
+
         //Change your code to assign the value 123L (Note the 'L' at the end) to myNumber.
-        //
+        long myNumber = 123L;
+        System.out.println("myNumber = " + myNumber);
+
+
         //Change your code to assign the value 123 to myNumber.
-        //
+        myNumber = 123;
+        System.out.println("myNumber = " + myNumber);
+
         //Why does assigning the value 3.14 to a variable declared as a long not compile, but assigning an integer value does?
-        //
+        //You can always cast higher but never lower. float and doubles are higher precision then long. while in is a lower precision then long.
+
         //Change your code to declare myNumber as a float. Assign the value 3.14 to it. What happens? What are two ways we could fix this?
         //
         //Copy and paste the following code blocks one at a time and execute them
