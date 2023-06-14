@@ -14,14 +14,13 @@ public class ConsoleExercises {
 
 
         System.out.println("Enter an Integer: ");
-        int userInt = scanner.nextInt(); // if no int is inputted, then an exception is thrown.
+        int userInt = parseInt(scanner.nextLine()); // if no int is inputted, then an exception is thrown.
         System.out.println("userInt = " + userInt);
 
-
         System.out.println("Enter 3 words: "); // if less than 3. system waits for another input. if more only first 3 are printed
-        String word1 = scanner.next();
-        String word2 = scanner.next();
-        String word3 = scanner.next();
+        String word1 = scanner.nextLine();
+        String word2 = scanner.nextLine();
+        String word3 = scanner.nextLine();
         System.out.printf("%s%n%s%n%s%n", word1, word2, word3);
 
         System.out.print("Enter a sentence: ");
@@ -29,9 +28,9 @@ public class ConsoleExercises {
         System.out.println("sentience:\n" + sentience);
 
         System.out.println("Calculate area of room. Enter Length followed by the width");
-        int len = scanner.nextInt();
-        int width = scanner.nextInt();
-        int height = scanner.nextInt();
+        int len = parseInt(scanner.nextLine());
+        int width = parseInt(scanner.nextLine());
+        int height = parseInt(scanner.nextLine());
         int area = (int)calcArea(len, width);
         int perimeter = (int)calcPerimeter(len, width);
         System.out.println("area = " + area);
