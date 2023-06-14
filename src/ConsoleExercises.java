@@ -15,9 +15,11 @@ public class ConsoleExercises {
         String word1 = scanner.next();
         String word2 = scanner.next();
         String word3 = scanner.next();
-        System.out.println("word1 = " + word1);
-        System.out.println("word2 = " + word2);
-        System.out.println("word3 = " + word3);
+        System.out.printf("%s%n%s%n%s%n", word1, word2, word3);
+
+        System.out.print("Enter a sentence: ");
+        String sentience = scanner.next();
+        System.out.println("sentience:\n" + sentience);
 
     }
 }
