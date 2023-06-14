@@ -2,9 +2,11 @@ import java.util.Scanner;
 
 public class ControlFlowExercises {
     public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
 
         /**
          * Part 1 a, b, and c
+         */
 
 //        int i = 5;
 //        while(i <= 15){
@@ -40,10 +42,9 @@ public class ControlFlowExercises {
 //            System.out.println(i);
 //        }
 
-        */
-
         /**
          * Part 2 FizzBuzz
+         */
 
 //        for(int i = 1; i <= 100; i++){
 //            if(i % 5 == 0){
@@ -59,20 +60,35 @@ public class ControlFlowExercises {
 //            }
 //        }
 
+
+        /**
+         * part 3
+         */
+        String ans = "";
+//
+//        do {
+//            System.out.println("What number would you like to go up to?");
+//            int num = Integer.parseInt(scanner.nextLine());
+//
+//            displaySqAndCubeTable(num);
+//
+//            System.out.println("Would you like to go again? (y/n)");
+//            ans = scanner.nextLine();
+//        } while(ans.equals("y"));
+
+        /**
+         * part 4
          */
 
-        Scanner scanner = new Scanner(System.in);
-        String ans ="";
-
         do {
-            System.out.println("What number would you like to go up to?");
-            int num = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter a grade from 0 to 100");
+            int gradeNum = Integer.parseInt(scanner.nextLine());
 
-            displaySqAndCubeTable(num);
+            displayLetterGrade(gradeNum);
 
             System.out.println("Would you like to go again? (y/n)");
             ans = scanner.nextLine();
-        } while(ans.equals("y"));
+        }while (ans.equals("y"));
 
     }
 
@@ -91,5 +107,47 @@ public class ControlFlowExercises {
             }
         }
 
+    }
+
+    public static void displayLetterGrade(int gradeNum){
+        String letterGrade = "";
+        if(gradeNum >= 88 && gradeNum <= 100){
+            letterGrade = "A";
+            if(gradeNum > 97){
+                letterGrade = "+" + letterGrade;
+            }
+            if(gradeNum < 92){
+                letterGrade = "-" + letterGrade;
+            }
+        } else if(gradeNum >= 80 && gradeNum <= 87){
+            letterGrade = "B";
+            if(gradeNum > 85){
+                letterGrade = "+" + letterGrade;
+            }
+            if(gradeNum < 83){
+                letterGrade = "-" + letterGrade;
+            }
+        }else if(gradeNum >= 67 && gradeNum <= 79){
+            letterGrade = "C";
+            if(gradeNum > 77){
+                letterGrade = "+" + letterGrade;
+            }
+            if(gradeNum < 70){
+                letterGrade = "-" + letterGrade;
+            }
+        }else if(gradeNum >= 60 && gradeNum <= 66){
+            letterGrade = "D";
+            if(gradeNum > 65){
+                letterGrade = "+" + letterGrade;
+            }
+            if(gradeNum < 62){
+                letterGrade = "-" + letterGrade;
+            }
+        }else if(gradeNum <= 59){
+            letterGrade = "F";
+        }else{
+            letterGrade = "(outside of grade scope)";
+        }
+        System.out.printf("A grade of %d yields a letter grade of %s%n", gradeNum, letterGrade);
     }
 }
