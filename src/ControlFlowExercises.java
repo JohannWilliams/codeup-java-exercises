@@ -66,29 +66,29 @@ public class ControlFlowExercises {
          */
         String ans = "";
 //
-//        do {
-//            System.out.println("What number would you like to go up to?");
-//            int num = Integer.parseInt(scanner.nextLine());
-//
-//            displaySqAndCubeTable(num);
-//
-//            System.out.println("Would you like to go again? (y/n)");
-//            ans = scanner.nextLine();
-//        } while(ans.equals("y"));
+        do {
+            System.out.println("What number would you like to go up to?");
+            int num = Integer.parseInt(scanner.nextLine());
+
+            displaySqAndCubeTable(num);
+
+            System.out.println("Would you like to go again? (y/n)");
+            ans = scanner.nextLine();
+        } while(ans.equals("y"));
 
         /**
          * part 4
          */
 
-        do {
-            System.out.println("Enter a grade from 0 to 100");
-            int gradeNum = Integer.parseInt(scanner.nextLine());
-
-            displayLetterGrade(gradeNum);
-
-            System.out.println("Would you like to go again? (y/n)");
-            ans = scanner.nextLine();
-        }while (ans.equals("y"));
+//        do {
+//            System.out.println("Enter a grade from 0 to 100");
+//            int gradeNum = Integer.parseInt(scanner.nextLine());
+//
+//            displayLetterGrade(gradeNum);
+//
+//            System.out.println("Would you like to go again? (y/n)");
+//            ans = scanner.nextLine();
+//        }while (ans.equals("y"));
 
     }
 
@@ -100,17 +100,13 @@ public class ControlFlowExercises {
      */
     public static void displaySqAndCubeTable(int num){
         System.out.println("Here is your table! ");
-        System.out.println("number\t| squared\t| cubed");
-        System.out.println("------\t| -------\t| -----");
+        System.out.printf("%-7s| %-8s| %-6s%n", "number", "squared", "cubed");
+        System.out.println("------ | ------- | -----");
 
         for(int i = 1; i <= num ; i++){
             int sqNum = (int)Math.pow(i, 2);
             int cubedNum = (int)Math.pow(i, 3);
-            if(sqNum < 10) {
-                System.out.printf("%s\t\t| %s\t\t\t| %s%n", i, sqNum, cubedNum);
-            } else {
-                System.out.printf("%s\t\t| %s\t\t| %s%n", i, sqNum, cubedNum);
-            }
+            System.out.printf("%-7d| %-8d| %-6d%n", i, sqNum, cubedNum);
         }
 
     }
