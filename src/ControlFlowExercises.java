@@ -92,6 +92,12 @@ public class ControlFlowExercises {
 
     }
 
+    /**
+     * helper function for part 3 of exercises.
+     * takes in a number and displays a table from
+     * 1 to that number and its square and cubed values
+     * @param num
+     */
     public static void displaySqAndCubeTable(int num){
         System.out.println("Here is your table! ");
         System.out.println("number\t| squared\t| cubed");
@@ -109,6 +115,11 @@ public class ControlFlowExercises {
 
     }
 
+    /**
+     * helper function for part 4 of the exercises. converts a
+     * number grade into a letter grade with + or - for each range.
+     * @param gradeNum
+     */
     public static void displayLetterGrade(int gradeNum){
         String letterGrade = "";
         if(gradeNum >= 88 && gradeNum <= 100){
