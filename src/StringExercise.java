@@ -19,7 +19,17 @@ public class StringExercise {
          * and the amazing triple backslash \\\!
          */
 
+        String firstStr = "We don't need no education\nWe don't need no thought control";
+        System.out.println(firstStr);
 
+        String secondStr = "Check\"this\" out!, \"s inside of \"s!";
+        System.out.println(secondStr);
+
+        String thirdStr = "In windows, the main drive is usually C:\\";
+        System.out.println(thirdStr);
+
+        String fourthStr = "I can do backslashes \\, double backslashes \\\\, and the amazing triple backslash \\\\\\!";
+        System.out.println(fourthStr);
 
     }
 }
