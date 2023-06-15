@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 public class Bob {
     public static void main(String[] args) {
@@ -15,6 +15,33 @@ public class Bob {
          * Write the Java code necessary so that a user of your command line application can have a conversation with Bob.
          */
 
+        Scanner scanner = new Scanner(System.in);
+        scanner.useDelimiter("\n");
+        String userInput = "";
+        boolean keepGoing = true;
 
+        System.out.println("Talk with Bob, if you want to quit, just input q, or quit");
+        do {
+            System.out.println("You:");
+            userInput = scanner.nextLine();
+            getBobsResponse(userInput);
+            if(userInput.equalsIgnoreCase("q") || userInput.equalsIgnoreCase("quit")){
+                keepGoing = false;
+            }
+        } while(keepGoing);
+    }
+
+    public static void getBobsResponse(String input){
+        String resp = "";
+        if(input.equals("")){
+            resp = "Fine. Be that way!";
+        }else if(input.endsWith("?")){
+            resp = "Sure.";
+        } else if(input.endsWith("!")){
+            resp = "Whoa, chill out!";
+        } else {
+            resp = "Whatever.";
+        }
+        System.out.println(resp);
     }
 }
