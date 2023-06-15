@@ -5,6 +5,7 @@ public class MethodsExercises {
         System.out.println("Subtraction(10, 5) = " + Subtraction(10, 5));
         System.out.println("Multiplication(5, 5) = " + Multiplication(5, 5));
         System.out.println("Division(25, 5) = " + Division(25, 5));
+        System.out.println("Modulus(5, 5) = " + Modulus(5, 5));
 
     }
 
@@ -18,6 +19,21 @@ public class MethodsExercises {
         return a * b;
     }
     public static int Division(int a, int b){
-        return a / b;
+        int result = 0;
+        try{
+            result = a / b;
+        } catch (Exception e){
+            System.out.println("Can not divide by Zero (0) \ne = " + e);
+        }
+        return result;
+    }
+    public static int Modulus(int a, int b){
+        int result = 0;
+        try{
+            result = a % b;
+        } catch (Exception e){
+            System.out.println("Can not divide by Zero (0) \ne = " + e);
+        }
+        return result;
     }
 }
