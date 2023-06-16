@@ -1,7 +1,10 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class MethodsExercises {
     public static Scanner scanner = new Scanner(System.in);
+    public static Random random = new Random();
+
     public static void main(String[] args) {
 
         // part 1
@@ -39,8 +42,14 @@ public class MethodsExercises {
             continueFactoring = userAnswer.equalsIgnoreCase("y");
         } while(continueFactoring);
 
-        //part 4
-
+        // part 4
+        boolean tryAgain = false;
+        do{
+            diceRollSim();
+            System.out.println("Would you like to try new dice?[y/n]");
+            String input = scanner.nextLine();
+            tryAgain = input.equalsIgnoreCase("y");
+        }while(tryAgain);
 
     }
 
@@ -133,6 +142,9 @@ public class MethodsExercises {
 
     /**
      * method for part 2
+     */
+
+    /**
      * getInteger recursively asks the user for an input
      * so long as the input is not in the range.
      * @param min
@@ -190,4 +202,61 @@ public class MethodsExercises {
         return factStr;
     }
 
+
+    /**
+     * methods for part 4
+     */
+
+    /**
+     * asks user for num sides of dice. Get and display dice rolls
+     * so long as user wants to keep rolling the dice.
+     */
+    public static void diceRollSim(){
+        boolean rollDice = false;
+        System.out.println("Enter the number of sides for your dice.");
+        int nNumDiceSides = Integer.parseInt(scanner.nextLine());
+        do{
+            rollDice = askToRollDice("Would you like to roll the dice now?[y,n]");
+        } while(!rollDice);
+
+        do{
+            rollDice(nNumDiceSides);
+            rollDice = askToRollDice("Would you like to roll the dice now?[y,n]");
+        } while (rollDice);
+
+    }
+
+    /**
+     * used to get and display both dice rolls.
+     * @param sides
+     */
+    public static void rollDice(int sides){
+        Random random = new Random();
+        int firstDice = diceRoll(sides + 1);
+        int secondDice = diceRoll(sides + 1);
+
+        System.out.println("firstDice = " + firstDice);
+        System.out.println("secondDice = " + secondDice);
+
+    }
+
+    /**
+     * gets a random number from 1 to the number of sides on the dice.
+     * @param maxNum
+     * @return
+     */
+    public static int diceRoll(int maxNum){
+        return random.nextInt(1, maxNum);
+    }
+
+    /**
+     * helper method used to get users response for rolling the dice.
+     * @param question
+     * @return
+     */
+    public static boolean askToRollDice(String question){
+        System.out.println(question);
+        String userInputForDiceRoll = scanner.nextLine();
+        return userInputForDiceRoll.equalsIgnoreCase("y");
+    }
 }
