@@ -1,12 +1,19 @@
+import java.util.Scanner;
 
 public class MethodsExercises {
+    public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("Addition(5,10) = " + Addition(5, 10));
         System.out.println("Subtraction(10, 5) = " + Subtraction(10, 5));
         System.out.println("Multiplication(5, 5) = " + Multiplication(5, 5));
         System.out.println("Multiplication(25,5) = " + Multiplication(25, 5));
+        System.out.println("Multiplication(-25,5) = " + Multiplication(-25, 5));
+        System.out.println("Multiplication(25,-5) = " + Multiplication(25, -5));
         System.out.println("Division(25, 5) = " + Division(25, 5));
         System.out.println("Modulus(5, 5) = " + Modulus(5, 5));
+
+        int userInput = getInteger(1, 10);
+        System.out.println("userInput = " + userInput);
 
     }
 
@@ -16,9 +23,10 @@ public class MethodsExercises {
     public static int Subtraction(int a, int b){
         return a - b;
     }
-//    public static int Multiplication(int a, int b){
-//        return a * b;
-//    }
+    public static int Multiplication(int a, int b){
+        return a * b;
+    }
+
 //    public static int Multiplication(int a, int b){
 //        int result = 0;
 //        for(int i = 0; i < b; i++){
@@ -27,12 +35,19 @@ public class MethodsExercises {
 //        return result;
 //    }
 
-    public static int Multiplication(int a, int b){
-        if(--b != 0){
-            a += Multiplication(a, b);
-        }
-        return a;
-    }
+//    public static int Multiplication(int a, int b){
+//        if(b > 0){
+//            if(--b != 0){
+//                a += Multiplication(a, b);
+//            }
+//        } else if(b < 0 && a > 0){
+//            if(++b != 0){
+//                a += Multiplication(a, b);
+//            }
+//        }
+//
+//        return a;
+//    }
     public static int Division(int a, int b){
         int result = 0;
         try{
@@ -51,4 +66,16 @@ public class MethodsExercises {
         }
         return result;
     }
+
+    public static int getInteger(int min, int max){
+        System.out.printf("Enter a number between %d and %d%n", min, max);
+        int userInput = Integer.parseInt(scanner.nextLine());
+
+        if(userInput < min || userInput > max){
+            userInput = getInteger(min, max);
+        }
+
+        return userInput;
+    }
+
 }
