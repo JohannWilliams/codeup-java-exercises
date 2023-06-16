@@ -31,12 +31,11 @@ public class MethodsExercises {
                 numToFactor = Integer.parseInt(scanner.nextLine());
             } while (numToFactor < 1 || numToFactor > 20); // max input is 20 with an output of 2432902008176640000, 21 we get our first overflow.
 
-            long factoredNumber = factorial(numToFactor);
-            System.out.println("factoredNumber = " + factoredNumber);
-
-            String factorStr = factorialString(factoredNumber, numToFactor);
-            System.out.println(factorStr);
-
+            for(int i = 1; i <= numToFactor; i++) {
+                long factoredNumber = factorial(i);
+                String factorStr = factorialString(factoredNumber, i);
+                System.out.println(factorStr);
+            }
             System.out.println("Would you like to factor another number?[y/n]");
             String userAnswer = scanner.nextLine();
             continueFactoring = userAnswer.equalsIgnoreCase("y");
