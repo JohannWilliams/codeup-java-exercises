@@ -15,6 +15,24 @@ public class MethodsExercises {
         int userInput = getInteger(1, 10);
         System.out.println("userInput = " + userInput);
 
+        int numToFactor = 0;
+        boolean continueFactoring = false;
+        do {
+            do {
+                System.out.println("Enter a number to factor between 1 and 25");
+                numToFactor = Integer.parseInt(scanner.nextLine());
+            } while (numToFactor < 1 || numToFactor > 20); // max input is 20 with an output of 2432902008176640000, 21 we get our first overflow.
+
+            long factoredNumber = factorial(numToFactor);
+            System.out.println("factoredNumber = " + factoredNumber);
+
+            String factorStr = factorialString(factoredNumber, numToFactor);
+            System.out.println(factorStr);
+
+            System.out.println("Would you like to factor another number?[y/n]");
+            String userAnswer = scanner.nextLine();
+            continueFactoring = userAnswer.equalsIgnoreCase("y");
+        } while(continueFactoring);
     }
 
     public static int Addition(int a, int b){
@@ -76,6 +94,31 @@ public class MethodsExercises {
         }
 
         return userInput;
+    }
+
+    public static long factorial(int num){
+        long fact = num;
+        if(num == 1){
+            return 1;
+        } else {
+            fact = fact * factorial(--num);
+        }
+        return fact;
+    }
+
+    public static String factorialString(long ans, int num){
+        String factStr = String.format("%d! = ", num);
+        for(int i = 1; i <= num; i++){
+            if(i == num){
+                String appendStr = String.format("%d = %d", i, ans);
+                factStr += appendStr;
+            } else {
+                String appendStr = String.format("%d x ", i);
+                factStr += appendStr;
+            }
+        }
+
+        return factStr;
     }
 
 }
