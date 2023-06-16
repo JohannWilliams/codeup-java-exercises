@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class MethodsExercises {
     public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
+
+        // part 1
         System.out.println("Addition(5,10) = " + Addition(5, 10));
         System.out.println("Subtraction(10, 5) = " + Subtraction(10, 5));
         System.out.println("Multiplication(5, 5) = " + Multiplication(5, 5));
@@ -12,14 +14,17 @@ public class MethodsExercises {
         System.out.println("Division(25, 5) = " + Division(25, 5));
         System.out.println("Modulus(5, 5) = " + Modulus(5, 5));
 
+
+        // part 2
         int userInput = getInteger(1, 10);
         System.out.println("userInput = " + userInput);
 
+        // part 3
         int numToFactor = 0;
         boolean continueFactoring = false;
         do {
             do {
-                System.out.println("Enter a number to factor between 1 and 25");
+                System.out.println("Enter a number to factor between 1 and 20");
                 numToFactor = Integer.parseInt(scanner.nextLine());
             } while (numToFactor < 1 || numToFactor > 20); // max input is 20 with an output of 2432902008176640000, 21 we get our first overflow.
 
@@ -33,18 +38,45 @@ public class MethodsExercises {
             String userAnswer = scanner.nextLine();
             continueFactoring = userAnswer.equalsIgnoreCase("y");
         } while(continueFactoring);
+
+        //part 4
+
+
     }
 
+    /**
+     * methods for part 1
+     */
+
+    /**
+     * returns the sum of (a) and (b)
+     * @param a
+     * @param b
+     * @return
+     */
     public static int Addition(int a, int b){
         return a + b;
     }
+
+    /**
+     * returns an integer that is (b) taken away from (a)
+     * @param a
+     * @param b
+     * @return
+     */
     public static int Subtraction(int a, int b){
         return a - b;
     }
+
+    /**
+     * returns the product of 2 integers.
+     * @param a
+     * @param b
+     * @return
+     */
     public static int Multiplication(int a, int b){
         return a * b;
     }
-
 //    public static int Multiplication(int a, int b){
 //        int result = 0;
 //        for(int i = 0; i < b; i++){
@@ -52,7 +84,6 @@ public class MethodsExercises {
 //        }
 //        return result;
 //    }
-
 //    public static int Multiplication(int a, int b){
 //        if(b > 0){
 //            if(--b != 0){
@@ -66,6 +97,13 @@ public class MethodsExercises {
 //
 //        return a;
 //    }
+
+    /**
+     * returns the integer of (a)/(b) so long as (b) is not zero
+     * @param a
+     * @param b
+     * @return
+     */
     public static int Division(int a, int b){
         int result = 0;
         try{
@@ -75,6 +113,14 @@ public class MethodsExercises {
         }
         return result;
     }
+
+    /**
+     * Modulus taks in 2 integers and returns the remainder of first number
+     * divided by second number so long a second number is not zero
+     * @param a
+     * @param b
+     * @return
+     */
     public static int Modulus(int a, int b){
         int result = 0;
         try{
@@ -85,6 +131,14 @@ public class MethodsExercises {
         return result;
     }
 
+    /**
+     * method for part 2
+     * getInteger recursively asks the user for an input
+     * so long as the input is not in the range.
+     * @param min
+     * @param max
+     * @return
+     */
     public static int getInteger(int min, int max){
         System.out.printf("Enter a number between %d and %d%n", min, max);
         int userInput = Integer.parseInt(scanner.nextLine());
@@ -96,6 +150,15 @@ public class MethodsExercises {
         return userInput;
     }
 
+    /**
+     * methods for part 3
+     */
+
+    /**
+     * recursively gets the factorial of a number.
+     * @param num
+     * @return
+     */
     public static long factorial(int num){
         long fact = num;
         if(num == 1){
@@ -106,6 +169,12 @@ public class MethodsExercises {
         return fact;
     }
 
+    /**
+     * returns a string of the factorial number amd its result
+     * @param ans
+     * @param num
+     * @return
+     */
     public static String factorialString(long ans, int num){
         String factStr = String.format("%d! = ", num);
         for(int i = 1; i <= num; i++){
