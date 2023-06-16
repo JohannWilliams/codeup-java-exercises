@@ -230,7 +230,6 @@ public class MethodsExercises {
      * @param sides
      */
     public static void rollDice(int sides){
-        Random random = new Random();
         int firstDice = diceRoll(sides + 1);
         int secondDice = diceRoll(sides + 1);
 
