@@ -5,17 +5,14 @@ public class Person {
     }
 
     public String getName(){
-//TODO: return the person's name
         return this.name;
     }
 
     public void setName(String name){
-//TODO: change the name field to the passed value
         this.name = name;
     }
     public void sayHello(){
-//TODO: print a message to the console using the person's name
-        System.out.printf("Hello, %s", this.name);
+        System.out.printf("Hello, %s\n", this.name);
     }
 
     public static void main(String[] args) {
@@ -24,5 +21,25 @@ public class Person {
         System.out.println(p1.getName());
         p1.setName("Doe");
         p1.sayHello();
+
+        // understanding references
+//        Person person1 = new Person("John");
+//        Person person2 = new Person("John");
+//        System.out.println(person1.getName().equals(person2.getName()));// true
+//        System.out.println(person1 == person2);// false
+
+//        Person person1 = new Person("John");
+//        Person person2 = person1;
+//        System.out.println(person1 == person2);//true
+
+        Person person1 = new Person("John");
+        Person person2 = person1;
+        System.out.println(person1.getName()); // john
+        System.out.println(person2.getName()); // john
+        person2.setName("Jane");
+        System.out.println(person1.getName()); // john expected got jane. P1 and P2 are equal
+        System.out.println(person2.getName()); // jane
+
+
     }
 }
