@@ -1,8 +1,8 @@
 package movies;
 
 public class Movie {
-    private static String name;
-    private static String category;
+    private String name;
+    private String category;
 
     public Movie(String name, String category){
         this.name = name;
@@ -17,11 +17,11 @@ public class Movie {
         this.category = category;
     }
 
-    public static String getName(){
-        return name;
+    public String getName(){
+        return this.name;
     }
 
-    public static String getCategory() {
-        return category;
+    public String getCategory() {
+        return this.category;
     }
 }
