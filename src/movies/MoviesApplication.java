@@ -79,7 +79,7 @@ public class MoviesApplication {
     /**
      * after prompting user for inputs, takes in a String for new movie name
      * and an integer response for specific category for the new movie. passes
-     * Name and Cat into method for adding movie to current movie list/array
+     * a new Movie into method for adding movie to current movie list/array
      */
     public static void createMovie(){
         System.out.print("Enter New Movie's Name: ");
@@ -91,18 +91,14 @@ public class MoviesApplication {
         System.out.println("4 - scifi");
         int newMovieCatNum = getNewMovieCategory();
 
-        addNewMovie(newMovieName, action[newMovieCatNum + 1]);
+        addNewMovie(new Movie(newMovieName, action[newMovieCatNum + 1]));
     }
 
     /**
-     * Create a new Movie with name and category, then adds that to the current
-     * movies list/array.
-     * @param name
-     * @param cat
+     * Adds the movie that was passed in, into the movies list/array.
+     * @param newMovie
      */
-    public static void addNewMovie(String name, String cat){
-        Movie newMovie = new Movie(name, cat);
-
+    public static void addNewMovie(Movie newMovie){
         mArray = Arrays.copyOf(mArray, mArray.length + 1);
         mArray[mArray.length - 1] = newMovie;
     }
