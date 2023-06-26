@@ -12,7 +12,12 @@ public class MoviesApplication {
         int userChoice;
         do{
             displayUserOptionMenu();
-            userChoice = getUserInput();
+            try{
+                userChoice = getUserInput();
+            } catch (Exception e){
+                System.out.println(e);
+                userChoice = -1;
+            }
             if(userChoice < 0 || userChoice > (action.length - 1)){
                 System.out.printf("Invalid Input. Please use a number between 0 and %d.\n", (action.length - 1));
             } else if (userChoice == 6) {
@@ -84,7 +89,7 @@ public class MoviesApplication {
         System.out.println("2 - drama");
         System.out.println("3 - horror");
         System.out.println("4 - scifi");
-        int newMovieCatNum = userInput.getInt(1, 4);
+        int newMovieCatNum = getNewMovieCategory();
 
         addNewMovie(newMovieName, action[newMovieCatNum + 1]);
     }
@@ -100,5 +105,23 @@ public class MoviesApplication {
 
         mArray = Arrays.copyOf(mArray, mArray.length + 1);
         mArray[mArray.length - 1] = newMovie;
+    }
+
+    /**
+     * gets the category number from user for new Movie. if input is not an integer
+     * or is outside the scope of 1-4, ask for input again.
+     * @return
+     */
+    public static int getNewMovieCategory(){
+        int newMovieCatNum = 0;
+        do{
+            try{
+                newMovieCatNum = userInput.getInt(1, 4);
+            } catch (Exception e){
+                System.out.println(e);
+            }
+        }while (newMovieCatNum <= 0 || newMovieCatNum > 4);
+
+        return newMovieCatNum;
     }
 }
