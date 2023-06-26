@@ -1,12 +1,12 @@
 package shapes;
 
 public class Rectangle {
-    protected static double length;
-    protected static double width;
+    protected double length;
+    protected double width;
 
     public Rectangle(double len, double w){
-        length = len;
-        width = w;
+        this.length = len;
+        this.width = w;
     }
 
     public double getArea(){
