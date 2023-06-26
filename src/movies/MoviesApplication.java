@@ -5,25 +5,19 @@ public class MoviesApplication {
     private static final Input userInput = new Input();
     private static Movie[] mArray = MoviesArray.findAll();
 
+    private static final String[] action = {"exit", "all", "animated", "drama", "horror", "scifi", "add"};
+
     public static void main(String[] args) {
         int userChoice;
         do{
             displayUserOptionMenu();
             userChoice = getUserInput();
-            if(userChoice < 0 || userChoice > 5){
-                System.out.println("Invalid Input. Please use a number between 0 and 5.");
+            if(userChoice < 0 || userChoice > (action.length - 1)){
+                System.out.printf("Invalid Input. Please use a number between 0 and %d.\n", (action.length - 1));
+            } else if (userChoice == 6) {
+                System.out.println("userChoice = " + userChoice);
             } else {
-                if(userChoice == 1){
-                    displayAllMovies();
-                } else if (userChoice == 2) {
-                    displayFilteredMovies("animated");
-                } else if (userChoice == 3) {
-                    displayFilteredMovies("drama");
-                } else if (userChoice == 4) {
-                    displayFilteredMovies("horror");
-                } else if (userChoice == 5) {
-                    displayFilteredMovies("scifi");
-                }
+                displayMovies(action[userChoice]);
             }
 
         }while(userChoice != 0);
@@ -40,7 +34,8 @@ public class MoviesApplication {
         System.out.println("2 - view movies in the animated category");
         System.out.println("3 - view movies in the drama category");
         System.out.println("4 - view movies in the horror category");
-        System.out.println("5 - view movies in the scifi category\n");
+        System.out.println("5 - view movies in the scifi category");
+        System.out.println("6 - add a movie to the list\n");
     }
 
     public static int getUserInput(){
@@ -48,20 +43,21 @@ public class MoviesApplication {
         return userInput.getInt();
     }
 
-    public static void displayAllMovies(){
-        for(Movie m : mArray){
-            System.out.printf("%s -- %s\n", m.getName(), m.getCategory());
-        }
-
-    }
-
-    public static void displayFilteredMovies(String selectedCategory){
-        String cat;
-        for(Movie m : mArray){
-            cat = m.getCategory();
-            if(cat.equalsIgnoreCase(selectedCategory)){
+    public static void displayMovies(String selectedCategory){
+        if(selectedCategory.equalsIgnoreCase("all")){
+            for(Movie m : mArray){
                 System.out.printf("%s -- %s\n", m.getName(), m.getCategory());
             }
+        }else{
+            String cat;
+            for(Movie m : mArray){
+                cat = m.getCategory();
+                if(cat.equalsIgnoreCase(selectedCategory)){
+                    System.out.printf("%s -- %s\n", m.getName(), m.getCategory());
+                }
+            }
         }
+
+
     }
 }
