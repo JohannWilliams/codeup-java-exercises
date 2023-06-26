@@ -10,7 +10,6 @@ public class Input {
     }
 
     public String getString(){
-        System.out.println("Enter a string!");
         return this.scanner.nextLine();
     }
 
@@ -35,7 +34,6 @@ public class Input {
     }
 
     public int getInt(){
-        System.out.println("Enter an Integer!");
         return Integer.parseInt(this.scanner.nextLine());
     }
 
@@ -50,7 +48,6 @@ public class Input {
     }
 
     public double getDouble(){
-        System.out.println("Enter a Double Number!");
         return Double.parseDouble(this.scanner.nextLine());
     }
 }
