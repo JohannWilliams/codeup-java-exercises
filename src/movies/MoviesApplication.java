@@ -1,13 +1,12 @@
 package movies;
 import util.Input;
 
-import java.util.Objects;
-
 public class MoviesApplication {
     private static final Input userInput = new Input();
+    private static Movie[] mArray = MoviesArray.findAll();
 
     public static void main(String[] args) {
-        int userChoice = -1;
+        int userChoice;
         do{
             displayUserOptionMenu();
             userChoice = getUserInput();
@@ -50,8 +49,6 @@ public class MoviesApplication {
     }
 
     public static void displayAllMovies(){
-        Movie[] mArray = MoviesArray.findAll();
-
         for(Movie m : mArray){
             System.out.printf("%s -- %s\n", m.getName(), m.getCategory());
         }
@@ -59,7 +56,6 @@ public class MoviesApplication {
     }
 
     public static void displayFilteredMovies(String selectedCategory){
-        Movie[] mArray = MoviesArray.findAll();
         String cat;
         for(Movie m : mArray){
             cat = m.getCategory();
