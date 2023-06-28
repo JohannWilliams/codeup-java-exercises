@@ -48,7 +48,7 @@ public class GradesApplication {
             continueSearch = userInput.getString();
         }while (continueSearch.equalsIgnoreCase("y") || continueSearch.equalsIgnoreCase("yes"));
 
-
+        System.out.println("Goodbye, and have a wonderful day!");
 
     }
 
