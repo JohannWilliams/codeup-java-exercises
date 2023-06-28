@@ -28,7 +28,7 @@ public class GradesApplication {
 
         System.out.println("Welcome!\n");
 
-        displayUsers(students);
+        displayStudentGitHubUserNames(students);
 
         String continueSearch;
         String requestedStudent;
@@ -52,7 +52,7 @@ public class GradesApplication {
 
     }
 
-    public static void displayUsers(HashMap<String, Student> students){
+    public static void displayStudentGitHubUserNames(HashMap<String, Student> students){
 
         System.out.println("Here are the GitHub usernames of our students:\n");
 
