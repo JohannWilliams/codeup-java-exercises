@@ -34,9 +34,13 @@ public class GradesApplication {
         String requestedStudent;
 
         do {
-            requestedStudent= askForStudentToGetDataOn();
+            requestedStudent = askForStudentToGetDataOn();
             if(students.containsKey(requestedStudent)){
                 displayStudentData(requestedStudent, students.get(requestedStudent));
+            } else if(requestedStudent.equalsIgnoreCase("all") || requestedStudent.equalsIgnoreCase("a")){
+                displayAllStudentGrades(students);
+            } else if(requestedStudent.equalsIgnoreCase("class") || requestedStudent.equalsIgnoreCase("c")){
+                displayClassAverage(students);
             } else {
                 System.out.printf("Sorry, no student found with the GitHub username of \"%s\".%n", requestedStudent);
             }
@@ -59,12 +63,26 @@ public class GradesApplication {
     }
 
     public static String askForStudentToGetDataOn(){
-        System.out.print("What student would you like to see more information on?\n\n> ");
+        System.out.print("What student would you like information on?\nType (A)ll to see all students grades. (C)lass to see class average.\n\n> ");
         return userInput.getString();
     }
 
     public static void displayStudentData(String ghName, Student s){
-        System.out.printf("Name: %s - GitHub Username: %s%nCurrent Average: %.1f%n%n", s.getName(), ghName, s.getGradeAverage());
+        System.out.printf("Name: %s - GitHub Username: %s%nCurrent Average: %.1f%nGrades: %s%n%n", s.getName(), ghName, s.getGradeAverage(), s.getGrades());
+    }
+
+    public static void displayAllStudentGrades(HashMap<String, Student> students){
+        for(String s: students.keySet()){
+            System.out.printf("Name: %s - GitHub Username: %s%nCurrent Average: %.1f%nGrades: %s%n%n", students.get(s).getName(), s, students.get(s).getGradeAverage(), students.get(s).getGrades());
+        }
+    }
+
+    public static void displayClassAverage(HashMap<String, Student> students){
+        double totalAverage = 0;
+        for(String s: students.keySet()){
+            totalAverage += students.get(s).getGradeAverage();
+        }
+        System.out.printf("Class Average: %.1f%n%n", totalAverage/students.size());
     }
 
 }

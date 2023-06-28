@@ -28,4 +28,8 @@ public class Student {
         }
         return gradetotal/grades.size();
     }
+
+    public String getGrades(){
+        return grades.toString();
+    }
 }
