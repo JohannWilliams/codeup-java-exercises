@@ -30,8 +30,21 @@ public class GradesApplication {
 
         displayUsers(students);
 
-        String requestedStudent = askForStudentToGetDataOn();
-        System.out.println(requestedStudent);
+        String continueSearch;
+        String requestedStudent;
+
+        do {
+            requestedStudent= askForStudentToGetDataOn();
+            if(students.containsKey(requestedStudent)){
+                displayStudentData(requestedStudent, students.get(requestedStudent));
+            } else {
+                System.out.printf("Sorry, no student found with the GitHub username of \"%s\".%n", requestedStudent);
+            }
+            System.out.println("Would you like to see another student? [(Y)es/(N)o]");
+            continueSearch = userInput.getString();
+        }while (continueSearch.equalsIgnoreCase("y") || continueSearch.equalsIgnoreCase("yes"));
+
+
 
     }
 
@@ -48,6 +61,10 @@ public class GradesApplication {
     public static String askForStudentToGetDataOn(){
         System.out.print("What student would you like to see more information on?\n\n> ");
         return userInput.getString();
+    }
+
+    public static void displayStudentData(String ghName, Student s){
+        System.out.printf("Name: %s - GitHub Username: %s%nCurrent Average: %.1f%n%n", s.getName(), ghName, s.getGradeAverage());
     }
 
 }
