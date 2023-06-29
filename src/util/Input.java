@@ -39,7 +39,8 @@ public class Input {
         try{
             val = Integer.valueOf(s);
         }catch(NumberFormatException e){
-            System.err.println("Input is not a valid integer!\n" + e);
+            System.err.println("Input is not a valid integer!\nTry Again!\n" + e);
+            val = getInt();
         }
         return val;
     }
@@ -60,13 +61,14 @@ public class Input {
         try{
             val = Double.valueOf(s);
         }catch(NumberFormatException e){
-            System.err.println("Input is not a valid integer!\n" + e);
+            System.err.println("Input is not a valid double number!\nTry Again!\n" + e);
+            val = getDouble();
         }
         return val;
     }
 
-    public int getBinary(){
-        int val = -1;
+    public double getBinary(){
+        double val = -1;
         String s = getString();
         try{
             val = Integer.valueOf(s, 2);
@@ -76,8 +78,8 @@ public class Input {
         return val;
     }
 
-    public int getHex(){
-        int val = -1;
+    public double getHex(){
+        double val = -1;
         String s = getString();
         try{
             val = Integer.valueOf(s, 16);
