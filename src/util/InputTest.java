@@ -20,5 +20,11 @@ public class InputTest {
         System.out.println("Enter a Double Number!");
         System.out.println(testInput.getDouble());
 
+        System.out.println("Enter a Binary Number!");
+        System.out.println(testInput.getBinary());
+
+        System.out.println("Enter a Hex Number!");
+        System.out.println(testInput.getHex());
+
     }
 }
