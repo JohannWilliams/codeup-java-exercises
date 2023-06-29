@@ -27,27 +27,63 @@ public class Input {
         int userInt = 0;
         do {
             System.out.printf("Enter a number between %d and %d\n", min, max);
-            userInt = Integer.parseInt(this.scanner.nextLine());
+            userInt = getInt();
         }while(userInt > max || userInt < min);
 
         return userInt;
     }
 
     public int getInt(){
-        return Integer.parseInt(this.scanner.nextLine());
+        int val = -1;
+        String s = getString();
+        try{
+            val = Integer.valueOf(s);
+        }catch(NumberFormatException e){
+            System.err.println("Input is not a valid integer!\n" + e);
+        }
+        return val;
     }
 
     public double getDouble(double min, double max){
         double userDouble = 0;
         do {
             System.out.printf("Enter a number between %f and %f\n", min, max);
-            userDouble = Double.parseDouble(this.scanner.nextLine());
+            userDouble = getDouble();
         }while(userDouble > max || userDouble < min);
 
         return userDouble;
     }
 
     public double getDouble(){
-        return Double.parseDouble(this.scanner.nextLine());
+        double val = -1;
+        String s = getString();
+        try{
+            val = Double.valueOf(s);
+        }catch(NumberFormatException e){
+            System.err.println("Input is not a valid integer!\n" + e);
+        }
+        return val;
+    }
+
+    public int getBinary(){
+        int val = -1;
+        String s = getString();
+        try{
+            val = Integer.valueOf(s, 2);
+        }catch(NumberFormatException e){
+            System.err.println("Input is not a valid Binary Input! Only 0's and 1's can be used!\n" + e);
+        }
+        return val;
+    }
+
+    public int getHex(){
+        int val = -1;
+        String s = getString();
+        try{
+            val = Integer.valueOf(s, 16);
+        }catch(NumberFormatException e){
+            System.err.println("Input is not a valid Hexadecimal Input! Only 0-9 and A-F!\n" + e);
+        }
+        return val;
     }
 }
